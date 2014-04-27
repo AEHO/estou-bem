@@ -17,6 +17,21 @@ h1{
 	font-size:3em;
 }
 
+#main{
+	height:100%;
+	.container{
+		height:50%;
+
+		.row{
+			height:100%;
+
+			#estou-mal{
+				height:100%;
+			}
+		}
+	}
+}
+
 #content{
 	display: block;
 	height:100%;

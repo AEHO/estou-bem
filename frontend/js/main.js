@@ -14,7 +14,7 @@
         },
         configAlarme: {
             template: require('./templates/config-alarme.html'),
-            destination: '#configAlarm',
+            destination: '#config-alarm',
             data: {},
             fullscreen:false
         },
@@ -35,7 +35,7 @@
     var renderTemplates = function(templates, hash){
         var key = hash.substring(1, hash.length);
         var template = templates[key];
-        
+
         $.each(templates, function(template_name, template){
             $(template.destination).hide();
         });
@@ -47,7 +47,7 @@
             $(navbar.destination).removeClass('hidden');
             $(navbar.destination).fadeIn();
         }
-
+        console.log(template.destination);
         template.html = template.template.render(template.data);
         $(template.destination).html(template.html);
         $(template.destination).removeClass('hidden');

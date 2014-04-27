@@ -38,8 +38,6 @@ public class MainActivity extends Activity {
 
 		alarm = new AlarmRec();
 
-		
-		
 		 cancelRepeatingTimer();
 //		 startRepeatingTimer();
 	}	

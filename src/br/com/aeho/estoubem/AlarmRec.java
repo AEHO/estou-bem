@@ -46,7 +46,7 @@ public class AlarmRec extends WakefulBroadcastReceiver {
 		am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
 				1000 * 5, pi);
 	}
-
+	
 	public void setOnetimeTimer(Context context) {
 		AlarmManager am = (AlarmManager) context
 				.getSystemService(Context.ALARM_SERVICE);

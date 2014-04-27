@@ -3,50 +3,51 @@
         alarm: {
             template: require('./templates/alarm.html'),
             destination: '#alarm',
-            data:{message:''}
+            data:{message:''},
+            fullscreen:true
         },
         navbar: {
             template: require('./templates/navbar.html'),
             destination: '#navbar',
-            data:{}
+            data:{},
+            fullscreen:false
         },
         configAlarme: {
             template: require('./templates/config-alarme.html'),
             destination: '#configAlarm',
-            data: {}
+            data: {},
+            fullscreen:false
         },
         main: {
             template: require('./templates/main.html'),
             destination: '#main',
-            data: {}
+            data: {},
+            fullscreen:false
         },
         profile: {
             template: require('./templates/profile.html'),
             destination: '#profile',
-            data: {}
+            data: {},
+            fullscreen:false
         }
-    };
-
-    var toggleDiv = function (div, hidden) {
-
-        if (typeof hidden === 'undefined')
-            throw new Error('coloca o hidden mano');
-
-
-        var $div = $(div);
-        if (hidden) {
-
-            return $div.hide().removeClass('hidden').fadeIn();
-        }
-        return $div.fadeOut();
     };
 
     var renderTemplates = function(templates, hash){
         var key = hash.substring(1, hash.length);
+        var template = templates[key];
+        
         $.each(templates, function(template_name, template){
             $(template.destination).hide();
         });
-        var template = templates[key];
+
+        if(!template.fullscreen){
+            var navbar = templates.navbar;
+            navbar.html = navbar.template.render(navbar.data);
+            $(navbar.destination).html(navbar.html);
+            $(navbar.destination).removeClass('hidden');
+            $(navbar.destination).fadeIn();
+        }
+
         template.html = template.template.render(template.data);
         $(template.destination).html(template.html);
         $(template.destination).removeClass('hidden');

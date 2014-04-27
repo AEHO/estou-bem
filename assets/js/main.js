@@ -9,6 +9,11 @@
 			template: require('./templates/navbar.html'),
 			destination: '#navbar',
 			data:{classes:'hidden'}
+		},
+		configAlarme: {
+			template: require('./templates/config-alarme.html'),
+			destination: '#content',//TODO
+			data: {}
 		}
 	};
 

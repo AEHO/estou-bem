@@ -27,7 +27,6 @@ gulp.task('javascript', function(){
       debug : !gulp.env.production,
       transform : ['browserify-hogan']
     }))
-    .pipe(uglify())
     .pipe(gulp.dest('../assets/'))
     .pipe(livereload());
 });

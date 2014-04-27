@@ -1,19 +1,21 @@
-<h1>Configuração de Alarme</h1>
-<ul class="list-unstyled">
-    <li>
-        <label>Hora Inicial</label>
-        <input placeholder="Hora Inicial" type="time" id="hora-inicial" class="form-control">
-    </li>
-    <li>
-        <label>Hora Final</label>
-        <input placeholder="ex: " type="time" id="hora-final" class="form-control">
-    </li>
-    <li>
-        <label>Período</label>
-        <input placeholder="horas" type="number" id="repeticoes" class="form-control">
-    </li>
-</ul>
+<div class="container">
+    <h1 class="text-center">Configuração de Alarme</h1>
+    <ul class="list-unstyled">
+        <li>
+            <label>Início</label>
+            <input placeholder="Início dos alarmes" type="time" id="hora-inicial" class="form-control">
+        </li>
+        <li>
+            <label>Término</label>
+            <input placeholder="Final dos alarmes " type="time" id="hora-final" class="form-control">
+        </li>
+        <li>
+            <label>Intervalo</label>
+            <input placeholder="Intervalo em horas" type="number" id="repeticoes" class="form-control">
+        </li>
+    </ul>
 
-<div class="row text-center">
-    <button class="btn btn-success text-center" id="btn-salvar-config">Salvar</button>
+    <div class="row text-center">
+        <a href="#main" class="btn btn-success text-center" id="btn-salvar-config">Salvar</a>
+    </div>
 </div>

@@ -24,3 +24,6 @@ proguard/
 
 #Log Files
 *.log
+
+assets/main.css
+assets/main.js

@@ -3,6 +3,8 @@ $bgHighlight    : $branco;
 $colDefault     : $branco;
 $colHighlight       : $cinza;
 .navbar-default {
+  position:absolute;
+  width:100%;
   border-radius:0px;
   border:none;
   background-color: $bgDefault;

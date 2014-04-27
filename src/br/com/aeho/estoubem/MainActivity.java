@@ -37,8 +37,6 @@ public class MainActivity extends Activity {
 
 		alarm = new AlarmRec();
 
-		Intent i = new Intent(MainActivity.this, AlarmActivity.class);
-		startActivity(i);
 		
 		 cancelRepeatingTimer();
 //		 startRepeatingTimer();
@@ -118,7 +116,6 @@ public class MainActivity extends Activity {
 		@JavascriptInterface
 		public String getCurrentLocation() {
 			return "-42.13213,-21.3132";
-		}
-		
+		}	
  	}
 }

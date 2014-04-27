@@ -11,8 +11,8 @@ $colHighlight       : $vermelho1;
     color: $colDefault;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     @include transition(all, 0.3s, ease-in-out);
-    &:hover, &:focus { 
-      color: $colHighlight; 
+    &:hover, &:focus {
+      color: $colHighlight;
     }
   }
   .navbar-text {
@@ -65,4 +65,27 @@ $colHighlight       : $vermelho1;
       > a, > a:hover, > a:focus, {
         color: $colHighlight;
         background-color: $bgHighlight; }}}
+}
+
+#config-alarme {
+  h1 {
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    li {
+      font-size: 22px;
+      background: rgb(252, 252, 252);
+      border-radius: 3px;
+      padding-top: 9px;
+      padding-left: 10px;
+      &:active {
+        background: rgb(194, 194, 194);
+        color: white;
+      }
+    }
+
+  }
 }

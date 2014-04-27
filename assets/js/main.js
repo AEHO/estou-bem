@@ -16,6 +16,13 @@
 			template: require('./templates/navbar.html'),
 			destination: '#navbar',
 			data:{}
+		},
+		configAlarme: {
+			template: require('./templates/config-alarme.html'),
+			destination: '#content',
+			data: {
+
+			}
 		}
 	};
 

@@ -1,0 +1,41 @@
+<div id="config-alarme" class="container">
+    <h1>Configuração de Alarme</h1>
+    <ul class="list-unstyled">
+        <li>
+            <label>Hora Inicial</label>
+            <input type="text" id="hora-inicial" class="form-control">
+        </li>
+        <li>
+            <label>Hora Final</label>
+            <input type="text" id="hora-final" class="form-control">
+        </li>
+        <li>
+            <label>Repetições do Intervalo</label>
+            <input type="text" id="repeticoes" class="form-control">
+        </li>
+    </ul>
+
+    <div class="row text-center">
+        <button class="btn btn-success text-center" id="btn-salvar">Salvar</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+
+    var $configAlarme = $('#config-alarme');
+
+    function getInputValues () {
+        return {
+            horaInicial: $('#hora-inicial', $configAlarme).val(),
+            horaFinal: $('#hora-final', $configAlarme).val(),
+            repeticoes: $('#repeticoes', $configAlarme).val()
+        };
+    }
+
+    $('#btn-salvar', $configAlarme).click(function (ev) {
+        var result = getInputValues();
+    });
+
+});
+</script>

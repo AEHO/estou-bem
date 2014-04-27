@@ -1,12 +1,25 @@
+var send_mail = require('./send_mail').send_mail;
+
 var events = (function($){
     $('.botao-mal').each(function(){
-        $(this).on('click', function(e){
-            var $this = $(this);
+        var $this = $(this);
+        var text_before = $this.text();
+        $this.on('click', function(e){
             $this.text('Enviando alerta...');
-            setTimeout(function(){
-                $this.text('Alerta enviado');
-                $this.addClass('sent');
-            }, 5000);
+            send_mail()
+                .done(function(){
+                    $this.text('Alerta enviado');
+                    $this.addClass('sent');
+                })
+                .fail(function(){
+                    $this.text('O ALERTA NÃO PODE SER ENVIADO!');
+                })
+                .always(function() {
+                    setTimeout(function(){
+                        $this.removeClass('sent');
+                        $this.text(text_before);
+                    }, 5000);
+                }); 
         });
     });
 

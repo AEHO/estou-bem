@@ -2,6 +2,7 @@ package br.com.aeho.estoubem;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
@@ -36,9 +37,12 @@ public class MainActivity extends Activity {
 
 		alarm = new AlarmRec();
 
-		// cancelRepeatingTimer();
-		// startRepeatingTimer();
-	}
+		Intent i = new Intent(MainActivity.this, AlarmActivity.class);
+		startActivity(i);
+		
+		 cancelRepeatingTimer();
+//		 startRepeatingTimer();
+	}	
 
 	public void startRepeatingTimer() {
 		Context context = this.getApplicationContext();
@@ -87,7 +91,6 @@ public class MainActivity extends Activity {
 			mContext = c;
 		}
 
-		/** Show a toast from the web page */
 		@JavascriptInterface
 		public void showToast(String toast) {
 			Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
@@ -111,5 +114,11 @@ public class MainActivity extends Activity {
 		public String getFromKey(String key) {
 			return getSharedPreferences().getString(key, "null");
 		}
-	}
+		
+		@JavascriptInterface
+		public String getCurrentLocation() {
+			return "-42.13213,-21.3132";
+		}
+		
+ 	}
 }

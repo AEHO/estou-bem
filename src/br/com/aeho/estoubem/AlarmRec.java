@@ -2,14 +2,14 @@ package br.com.aeho.estoubem;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 import android.widget.Toast;
 
-public class AlarmRec extends BroadcastReceiver {
+public class AlarmRec extends WakefulBroadcastReceiver {
 
 	final public static String ONE_TIME = "onetime";
 
@@ -18,13 +18,20 @@ public class AlarmRec extends BroadcastReceiver {
 		PowerManager pm = (PowerManager) context
 				.getSystemService(Context.POWER_SERVICE);
 		PowerManager.WakeLock wl = pm.newWakeLock(
-				PowerManager.PARTIAL_WAKE_LOCK, "");
-
+				PowerManager.SCREEN_BRIGHT_WAKE_LOCK |
+				PowerManager.FULL_WAKE_LOCK |
+				PowerManager.ACQUIRE_CAUSES_WAKEUP,
+				"");		
+		
 		wl.acquire();
 
 		// execute a particular action
 		Toast.makeText(context, "Alarm Fired!", Toast.LENGTH_LONG).show();
-		Log.v("AlarmRec", "DAHORA");
+		Log.v("AlarmRec", "BOOOOOM!");
+
+		Intent i = new Intent(context, AlarmActivity.class);
+		i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		context.startActivity(i);
 
 		// release the wakeLock that we had gained before
 		wl.release();

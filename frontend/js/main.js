@@ -19,6 +19,11 @@
             template: require('./templates/main.html'),
             destination: '#main',
             data: {},
+        },
+        profile: {
+            template: require('./templates/profile.html'),
+            destination: '#profile',
+            data: {},
         }
     };
 

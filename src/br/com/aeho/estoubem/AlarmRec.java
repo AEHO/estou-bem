@@ -26,7 +26,7 @@ public class AlarmRec extends WakefulBroadcastReceiver {
 		wl.acquire();
 
 		// execute a particular action
-		Toast.makeText(context, "Alarm Fired!", Toast.LENGTH_LONG).show();
+//		Toast.makeText(context, "Alarm Fired!", Toast.LENGTH_LONG).show();
 		Log.v("AlarmRec", "BOOOOOM!");
 
 		Intent i = new Intent(context, AlarmActivity.class);
@@ -53,7 +53,7 @@ public class AlarmRec extends WakefulBroadcastReceiver {
 		Intent intent = new Intent(context, AlarmRec.class);
 		intent.putExtra(ONE_TIME, Boolean.TRUE);
 		PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
-		am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), pi);
+		am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 3000, pi);
 	}
 
 	public void cancelAlarm(Context context) {

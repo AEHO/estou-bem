@@ -38,14 +38,15 @@ public class MainActivity extends Activity {
 
 		alarm = new AlarmRec();
 
-		 cancelRepeatingTimer();
-//		 startRepeatingTimer();
+//		 cancelRepeatingTimer();
+		 startTimer();
 	}	
 
-	public void startRepeatingTimer() {
+	public void startTimer() {
 		Context context = this.getApplicationContext();
 		if (alarm != null) {
-			alarm.setAlarm(context);
+//			alarm.setAlarm(context);
+			alarm.setOnetimeTimer(context);
 		} else {
 			Toast.makeText(context, "Alarm is null", Toast.LENGTH_SHORT).show();
 		}

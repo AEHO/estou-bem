@@ -29,6 +29,7 @@ public class AlarmActivity extends Activity{
 		myWebView.addJavascriptInterface(new WebAppInterface(this), "AndroidAlarme");
 	}
 	
+	
 	public class WebAppInterface {
 		Context mContext;
 

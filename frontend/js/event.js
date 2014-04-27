@@ -27,7 +27,11 @@ var events = (function($){
         $('#btn-salvar-config', $configAlarm).click(function (ev) {
             var result = getInputValues();
 
+            Android.showToast('dahora');
+            Android.setAlarmFromJS();
+
             document.location.href = "/#main";
+
         });
 
     })();

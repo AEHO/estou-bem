@@ -2,7 +2,6 @@ package br.com.aeho.estoubem;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
@@ -38,8 +37,8 @@ public class MainActivity extends Activity {
 
 		alarm = new AlarmRec();
 
-//		 cancelRepeatingTimer();
-		 startTimer();
+//		cancelRepeatingTimer();
+		startTimer();
 	}	
 
 	public void startTimer() {
@@ -117,6 +116,11 @@ public class MainActivity extends Activity {
 		@JavascriptInterface
 		public String getCurrentLocation() {
 			return "-42.13213,-21.3132";
-		}	
+		}
+		
+		@JavascriptInterface
+		public void setAlarmFromJS() {
+			startTimer();
+		}
  	}
 }

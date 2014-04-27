@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
-import android.widget.Toast;
 
 public class AlarmRec extends WakefulBroadcastReceiver {
 
@@ -26,7 +25,7 @@ public class AlarmRec extends WakefulBroadcastReceiver {
 		wl.acquire();
 
 		// execute a particular action
-//		Toast.makeText(context, "Alarm Fired!", Toast.LENGTH_LONG).show();
+		// Toast.makeText(context, "Alarm Fired!", Toast.LENGTH_LONG).show();
 		Log.v("AlarmRec", "BOOOOOM!");
 
 		Intent i = new Intent(context, AlarmActivity.class);

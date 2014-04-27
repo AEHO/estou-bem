@@ -37,6 +37,7 @@
         var template = templates[key];
 
         $.each(templates, function(template_name, template){
+            $(template.destination).html('');
             $(template.destination).hide();
         });
 
@@ -54,7 +55,8 @@
         $(template.destination).fadeIn();
     };
 
-    if(document.location.hash === '#' || !document.location.hash){
+    console.log()
+    if(document.location.hash === '#' || document.location.hash === ''){
         renderTemplates(templates, '#main');
     }else{
         renderTemplates(templates, document.location.hash);
@@ -62,7 +64,11 @@
 
 
     $(window).on('hashchange', function() {
-        renderTemplates(templates, document.location.hash);
+        if(document.location.hash === '#' || document.location.hash === ''){
+            renderTemplates(templates, '#main');
+        }else{
+            renderTemplates(templates, document.location.hash);
+        }
     });
 }());
 

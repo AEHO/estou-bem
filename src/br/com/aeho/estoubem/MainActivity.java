@@ -17,6 +17,7 @@ import android.widget.Toast;
  * 
  */
 
+
 public class MainActivity extends Activity {
 
 	private AlarmRec alarm;

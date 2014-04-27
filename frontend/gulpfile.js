@@ -16,7 +16,7 @@ gulp.task('sass', function(){
   gulp.src('sass/*.scss')
     .pipe(sass())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('../'))
+    .pipe(gulp.dest('../assets/'))
     .pipe(livereload());
 });
 
@@ -28,7 +28,7 @@ gulp.task('javascript', function(){
       transform : ['browserify-hogan']
     }))
     .pipe(uglify())
-    .pipe(gulp.dest('../'))
+    .pipe(gulp.dest('../assets/'))
     .pipe(livereload());
 });
 

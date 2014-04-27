@@ -11,26 +11,28 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     inject = require('gulp-inject');
 
-var css_stream = gulp.src('sass/*.scss')
-    .pipe(sass())
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('dist/css'));
-
-var js_stream = gulp.src('js/main.js')
-    .pipe(browserify({
-      insertGlobals : true,
-      debug : !gulp.env.production
-    }))
-    .pipe(jshint())
-    .pipe(gulp.dest('dist/js'));
 
 gulp.task('sass', function(){
-  return css_stream;
+  gulp.src('sass/*.scss')
+    .pipe(sass())
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('javascript', function(){
-  return js_stream;
+  gulp.src('js/main.js')
+    .pipe(browserify({
+      insertGlobals : true,
+      debug : !gulp.env.production,
+      transform : ['browserify-hogan']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('./'));
 });
 
 
-gulp.task('default', ['sass', 'javascript']);
+gulp.task('default', ['sass', 'javascript'], function(){
+  gulp.watch('sass/**/*.scss', ['sass']);
+  gulp.watch('js/**', ['javascript']);
+});
+

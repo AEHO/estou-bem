@@ -1,0 +1,68 @@
+$bgDefault      : $vermelho0;
+$bgHighlight    : $branco;
+$colDefault     : $branco;
+$colHighlight       : $vermelho1;
+.navbar-default {
+  border-radius:0px;
+  border:none;
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    @include transition(all, 0.3s, ease-in-out);
+    &:hover, &:focus { 
+      color: $colHighlight; 
+    }
+  }
+  .navbar-text {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    @include transition(all, 0.3s, ease-in-out);
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        @include transition(all, 0.3s, ease-in-out);
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $colHighlight;
+    }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    @include transition(all, 0.3s, ease-in-out);
+    border-color: $colDefault; }
+  .navbar-link {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    @include transition(all, 0.3s, ease-in-out);
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+      @include transition(all, 0.3s, ease-in-out);
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}

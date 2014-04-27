@@ -21,6 +21,8 @@
     "gulp-jshint":"1.5.x",
     "gulp-inject":"0.4.x",
     "express":"4.0.x",
+    "browserify-hogan": "0.1.x",
+    "hogan.js":"2.0.x",
     "gulp": "3.6.x"
   }
 }

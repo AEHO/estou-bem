@@ -1,4 +1,5 @@
 @import "_navbar";
+@import "_buttons";
 
 html{
 	height:100%;
@@ -9,4 +10,28 @@ body{
 	height:100%;
 	margin:0;
 	padding:0;
+	font-family:roboto;
+}
+
+h1{
+	font-size:3em;
+}
+
+#content{
+	display: block;
+	height:100%;
+}
+
+#alarm{
+	.row{
+		height:100%;
+		.col-xs-12{
+			height:50%;
+		}
+	}
+}
+
+
+.container{
+	height: 100%;
 }

@@ -1,0 +1,32 @@
+.btn-round{
+	width: 100%;
+	height:60%;
+	border-radius: 5px;
+	font-size: 5em;
+	color:$branco;
+	box-shadow: -6px -6px 3px rgba(255,255,255,0.2) inset, 6px 6px 6px rgba(0,0,0,0.2);
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+
+	&:hover,&:active{
+		text-shadow: 2px 2px 1px rgba(0,0,0,0.3);
+		color:$branco;
+	}
+}
+
+#estou-bem{
+	background-color: $verde1;
+	@include transition(all, 0.3s, ease-in-out);
+
+	&:hover,&:active{
+		background-color: $verde3;
+	}
+}
+
+#estou-mal{
+	background-color: $vermelho1;
+	@include transition(all, 0.3s, ease-in-out);
+
+	&:hover,&:active{
+		background-color: $vermelho0;
+	}
+}

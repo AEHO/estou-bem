@@ -9,9 +9,19 @@
 
 <h1 id="h1">sample</h1>
 
-<input type="button" onClick="showAndroidToast('Dahora a vida')" value="show toast">
+<input type="button" id="botao" value="show toast">
 
 <script type="text/javascript">
+
+setTimeout(function () {
+    Android.addToKey('chave', 'valor');
+
+    setTimeout(function () {
+        document
+            .getElementById('h1')
+            .innerHTML = Android.getFromKey('chave');
+    }, 1000);
+}, 1000);
 
 </script>
 </body>

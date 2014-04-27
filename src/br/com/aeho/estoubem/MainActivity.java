@@ -2,8 +2,8 @@ package br.com.aeho.estoubem;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -17,9 +17,10 @@ import android.widget.Toast;
  */
 
 public class MainActivity extends Activity {
-	
+
 	private AlarmRec alarm;
-	
+	public static final String PREFS_NAME = "MyPrefsFile";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,11 +33,11 @@ public class MainActivity extends Activity {
 		webSettings.setJavaScriptEnabled(true);
 
 		myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
-		
+
 		alarm = new AlarmRec();
-		
-//		cancelRepeatingTimer();
-//		startRepeatingTimer();
+
+		// cancelRepeatingTimer();
+		// startRepeatingTimer();
 	}
 
 	public void startRepeatingTimer() {
@@ -66,6 +67,18 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	public SharedPreferences getSharedPreferences() {
+		SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+
+		return prefs;
+	}
+
+	public SharedPreferences.Editor getEditablePreferences() {
+		return getSharedPreferences().edit();
+	}
+
+	// Javascript Interface
+
 	public class WebAppInterface {
 		Context mContext;
 
@@ -79,6 +92,24 @@ public class MainActivity extends Activity {
 		public void showToast(String toast) {
 			Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
 		}
-	}
 
+		@JavascriptInterface
+		public void addToKey(String key, String value) {
+			SharedPreferences.Editor editor = getEditablePreferences();
+			editor.putString(key, value);
+			editor.apply();
+		}
+
+		@JavascriptInterface
+		public void removeFromKey(String key) {
+			SharedPreferences.Editor editor = getEditablePreferences();
+			editor.remove(key);
+			editor.commit();
+		}
+
+		@JavascriptInterface
+		public String getFromKey(String key) {
+			return getSharedPreferences().getString(key, "null");
+		}
+	}
 }
